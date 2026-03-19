@@ -107,7 +107,7 @@ public class InterventionView {
         root.setStyle("-fx-padding: 15;");
         return root;
     }
-
+    // Méthode pour ouvrir un dialogue de création ou de modification d'intervention
     private void openDialog(Intervention base) {
         Dialog<Intervention> win = new Dialog<>();
         win.setTitle(base == null ? "Nouvelle Intervention" : "Édition");
@@ -125,6 +125,7 @@ public class InterventionView {
         ComboBox<Technicien> cbTech = new ComboBox<>(FXCollections.observableArrayList(tDao.listerTout()));
         ComboBox<Batiment> cbBat = new ComboBox<>(FXCollections.observableArrayList(bDao.listerTout()));
         
+        // Pré-remplissage des champs si on modifie une intervention existante
         if (base != null) {
             cbTech.setValue(base.getTechnicien());
             cbBat.setValue(base.getBatiment());
@@ -155,7 +156,7 @@ public class InterventionView {
             refreshUI();
         });
     }
-
+    // Méthode pour rafraîchir les données affichées dans les tableaux
     private void refreshUI() {
         table.setItems(FXCollections.observableArrayList(iDao.listerTout()));
         if (viewTech != null) viewTech.setItems(FXCollections.observableArrayList(tDao.listerTout()));

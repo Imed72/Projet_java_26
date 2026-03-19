@@ -1,18 +1,19 @@
 package projet_java_26.demo.model;
 
 /**
- * Classe reprÃ©sentant un bÃ¢timent du complexe
+ * Classe reprsentant un btiment du complexe
  * Contient les informations de base sur les lieux d'intervention
  */
 public class Batiment {
 
     private int id;
     private String nom;
-    private String localisation; // Adresse ou emplacement prÃ©cis
+    private String localisation; // Adresse ou emplacement prcis
 
-    // Constructeur par dÃ©faut - nÃ©cessaire pour certains frameworks
+    // Constructeur par défaut - nécessaire pour certains frameworks
+    // et pour permettre la création d'instances sans paramètres
     public Batiment() {
-        // vide pour l'instant
+        // Constructeur vide pour permettre la création d'instances sans paramètres
     }
 
     // Constructeur qu'on utilise normalement
@@ -47,7 +48,7 @@ public class Batiment {
         this.localisation = localisation;
     }
 
-    // MÃ©thode toString pour afficher les infos de base
+    // Methode toString pour afficher les infos de base
     @Override
     public String toString() {
         return nom + " - " + localisation;

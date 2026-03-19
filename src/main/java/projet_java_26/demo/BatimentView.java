@@ -18,7 +18,7 @@ public class BatimentView {
 
     public VBox createView() {
         // Configuration des colonnes du tableau
-        // Note: On pourrait optimiser ça mais bon, ça marche
+        //  ça marche comme ça pour l'instant
         TableColumn<Batiment, Object> colId = new TableColumn<>("ID");
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         
@@ -148,6 +148,7 @@ public class BatimentView {
         });
 
         // Afficher le dialogue et traiter le résultat
+        // Si un bâtiment a été créé ou modifié, l'ajouter ou le mettre à jour dans la base de données
         dialogue.showAndWait().ifPresent(batimentResultat -> {
             if (batimentAModifier == null) {
                 batimentDAO.ajouter(batimentResultat);
@@ -159,11 +160,13 @@ public class BatimentView {
     }
 
     // Méthode pour recharger les données du tableau
+    // Appelée après chaque ajout, modification ou suppression pour refléter les changements
     private void rafraichirDonnees() {
         tableauBatiments.setItems(FXCollections.observableArrayList(batimentDAO.listerTout()));
     }
 
     // Getter pour accéder au tableau depuis l'extérieur si besoin
+    // Utile pour les tests ou pour d'autres interactions
     public TableView<Batiment> getTableView() { 
         return tableauBatiments; 
     }

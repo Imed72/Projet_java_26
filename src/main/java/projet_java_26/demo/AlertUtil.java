@@ -5,7 +5,8 @@ import javafx.scene.control.Alert.AlertType;
 
 public class AlertUtil {
 
-    // Méthode générique pour les avertissements (Warning)
+    // Méthode générique pour les avertissements 
+    // head : titre de l'alerte, msg : message à afficher
     public static void showAlert(String head, String msg) {
         Alert a = new Alert(AlertType.WARNING);
         a.setTitle("Alerte");
@@ -14,7 +15,8 @@ public class AlertUtil {
         a.showAndWait();
     }
 
-    //  une méthode pour les erreurs fatales 
+    //  une méthode pour les erreurs fatales
+    // msg : message à afficher
     public static void showError(String msg) {
         Alert a = new Alert(AlertType.ERROR);
         a.setTitle("Erreur");

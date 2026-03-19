@@ -10,7 +10,7 @@ import projet_java_26.demo.model.Technicien;
 import projet_java_26.demo.util.AlertUtil;
 
 
-// Vue pour gérer les techniciens - affichage et CRUD operations
+// Vue pour gérer les techniciens - affichage et operations
 
 
 

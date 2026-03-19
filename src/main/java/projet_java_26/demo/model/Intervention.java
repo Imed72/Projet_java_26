@@ -11,7 +11,7 @@ public class Intervention {
     private int id;
     private String description;
     private LocalDate date;
-    private String type;      // peut être : Réparation, Contrôle ou Installation
+    private String type;      // peut êtr
     private String statut;    // Planifiée / En cours / Terminée
 
     // Liens vers les autres objets

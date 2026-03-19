@@ -9,12 +9,14 @@ import projet_java_26.demo.dao.TechnicienDAO;
 import projet_java_26.demo.dao.BatimentDAO;
 import projet_java_26.demo.dao.InterventionDAO;
 
+// Classe principale de l'application JavaFX
 public class MainApp extends Application {
 
     private TechnicienDAO techDAO = new TechnicienDAO();
     private BatimentDAO batDAO = new BatimentDAO();
     private InterventionDAO interDAO = new InterventionDAO();
-
+    
+    // Méthode d'entrée de l'application JavaFX
     @Override
     public void start(Stage stage) {
         // Création des vues

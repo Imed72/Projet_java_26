@@ -1,17 +1,17 @@
 package projet_java_26.demo.model;
 
 /**
- * Classe reprÃ©sentant un technicien de maintenance
- * GÃ¨re les informations personnelles et les compÃ©tences
+ * Classe reprsentant un technicien de maintenance
+ * Gere les informations personnelles et les comptences
  */
 public class Technicien {
 
     private int id;
     private String nom;
-    private String qualification; // SpÃ©cialitÃ© du technicien
+    private String qualification; // Spcialité du technicien
     private boolean disponible;   // true si libre pour une mission
 
-    // Constructeur par dÃ©faut - nÃ©cessaire pour certains frameworks
+    // Constructeur par dfaut - ncessaire pour certains frameworks
     public Technicien() {
         // vide pour l'instant
     }
@@ -57,7 +57,7 @@ public class Technicien {
         this.disponible = disponible;
     }
 
-    // MÃ©thode toString pour afficher les infos de base
+    // Mthode toString pour afficher les infos de base
     @Override
     public String toString() {
         return nom + " (" + qualification + ")";

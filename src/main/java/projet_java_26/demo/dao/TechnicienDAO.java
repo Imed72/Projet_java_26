@@ -6,7 +6,7 @@ import projet_java_26.demo.model.Technicien;
 
 public class TechnicienDAO {
     // Configuration de la base de données
-    // TODO: Mettre ces infos dans un fichier de config plus tard
+    // TODO: Mettre ces infos dans un fichier plus tard
     private final String databaseUrl = "jdbc:postgresql://localhost:5432/maintenance_db";
     private final String databaseUser = "admin";
     private final String databasePassword = "password123";
@@ -15,7 +15,9 @@ public class TechnicienDAO {
         List<Technicien> listeTechniciens = new ArrayList<>();
         
         // Requête SQL pour récupérer tous les techniciens
-        // Note: La disponibilité est calculée automatiquement en vérifiant s'il y a des interventions en cours
+        // Note: La disponibilité est calculée automatiquement en vérifiant
+        // s'il y a des interventions en cours
+
         String requeteSQL = "SELECT t.*, CASE WHEN EXISTS (SELECT 1 FROM interventions WHERE id_technicien = t.id AND statut = 'En cours') " +
                      "THEN false ELSE true END as dispo_reel FROM techniciens t ORDER BY t.id";
         
@@ -30,6 +32,8 @@ public class TechnicienDAO {
             
             while (resultats.next()) {
                 // Création d'un nouveau technicien avec les données de la BD
+
+                
                 String nom = resultats.getString("nom");
                 String qualification = resultats.getString("qualification");
                 boolean disponibilite = resultats.getBoolean("dispo_reel");

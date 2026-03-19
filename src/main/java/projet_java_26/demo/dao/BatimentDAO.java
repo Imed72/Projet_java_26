@@ -6,7 +6,7 @@ import projet_java_26.demo.model.Batiment;
 
 public class BatimentDAO {
     // Configuration de la base de données
-    // TODO: Mettre ces infos dans un fichier de config plus tard
+    // TODO: Mettre ces infos dans un fichier plus tard
     private final String databaseUrl = "jdbc:postgresql://localhost:5432/maintenance_db";
     private final String databaseUser = "admin";
     private final String databasePassword = "password123";

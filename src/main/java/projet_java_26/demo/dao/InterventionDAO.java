@@ -9,7 +9,7 @@ import projet_java_26.demo.model.Batiment;
 
 public class InterventionDAO {
     // Configuration de la base de données
-    // TODO: Mettre ces infos dans un fichier de config plus tard
+    // TODO: Mettre ces infos dans un fichier plus tard
     private final String databaseUrl = "jdbc:postgresql://localhost:5432/maintenance_db";
     private final String databaseUser = "admin";
     private final String databasePassword = "password123";
@@ -38,6 +38,7 @@ public class InterventionDAO {
            
             while (resultats.next()) {
                 // Création des objets associés
+
                 LocalDate date = resultats.getDate("date_intervention").toLocalDate();
                 String type = resultats.getString("type_intervention");
                 String statut = resultats.getString("statut");
@@ -81,6 +82,9 @@ public class InterventionDAO {
         List<Intervention> listeInterventions = new ArrayList<>();
        
         // Requête avec filtre technicien (style identique au listerTout)
+        // Note: On peut aussi faire une requête plus simple et charger les 
+        // techniciens/bâtiments séparément, 
+        // mais là on garde tout en une seule requête pour la simplicité
         String requeteSQL = "SELECT i.id as inter_id, i.date_intervention, i.type_intervention, i.statut, i.description, " +
                      "t.id as tech_id, t.nom as tech_nom, t.qualification as tech_qual, t.disponible as tech_dispo, " +
                      "b.id as bat_id, b.nom as bat_nom, b.localisation as bat_empl " +
@@ -99,7 +103,7 @@ public class InterventionDAO {
             resultats = statement.executeQuery(requeteSQL);
            
             while (resultats.next()) {
-                // Même création que dans listerTout (copié pour coller au style humain)
+                // Même création que dans listerTout 
                 LocalDate date = resultats.getDate("date_intervention").toLocalDate();
                 String type = resultats.getString("type_intervention");
                 String statut = resultats.getString("statut");
